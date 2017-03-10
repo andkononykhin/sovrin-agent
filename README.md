@@ -18,3 +18,4 @@ and interacting with the Sovrin Distributed Identity Ledger.
 - `$ python -m agent.scripts.startApiServer.py 0.0.0.0 8080`
 - Run `$ pytest` to run all tests
 .
+.
