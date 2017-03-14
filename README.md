@@ -19,3 +19,4 @@ and interacting with the Sovrin Distributed Identity Ledger.
 - Run `$ pytest` to run all tests
 .
 .
+.
