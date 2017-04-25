@@ -12,8 +12,7 @@ RUN apt-get update -y && apt-get install -y \
 	python-setuptools \
 	python3-nacl \
 	apt-transport-https \
-	ca-certificates \
-    libgmp3-dev
+	ca-certificates
 RUN pip3 install -U \
 	pip \
 	setuptools \
