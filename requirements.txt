@@ -5,7 +5,7 @@ anoncreds==0.2.34
 async-timeout==1.0.0
 base58==0.2.3
 chardet==2.3.0
-Charm-Crypto==0.43
+Charm-Crypto
 ioflo==1.5.4
 jsonpickle==0.9.3
 jsonschema==2.5.1
