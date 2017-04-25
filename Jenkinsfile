@@ -10,22 +10,22 @@ def testUbuntu = {
         checkout scm
 
         echo 'Ubuntu Test: Build docker image'
+        orientdb.start()
+
         def testEnv = dockerHelpers.build(name)
 
         testEnv.inside('--network host') {
             echo 'Ubuntu Test: Install dependencies'
             testHelpers.install()
-
             sh "pip install -r requirements.txt"
-            sh "pip install pytest-html"
 
             echo 'Ubuntu Test: Test'
-            sh "pytest --html=report.html --self-contained-html"
-            //testHelpers.testJUnit(resFile: "test-result.${NODE_NAME}.xml")
+            testHelpers.testJUnit(resFile: "test-result.${NODE_NAME}.xml")
         }
     }
     finally {
         echo 'Ubuntu Test: Cleanup'
+        orientdb.stop()
         step([$class: 'WsCleanup'])
     }
 }
@@ -39,4 +39,5 @@ def testWindowsNoDocker = {
 }
 
 
+//testAndPublish(name, [ubuntu: testUbuntu, windows: testWindowsNoDocker, windowsNoDocker: testWindowsNoDocker])
 testAndPublish(name, [ubuntu: testUbuntu])
